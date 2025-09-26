@@ -1,0 +1,31 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { FileText } from 'lucide-react';
+
+const InvoicesPage = () => {
+  return (
+    <div className="space-y-6">
+      <Card className="shadow-card">
+        <CardHeader>
+          <div className="flex items-center space-x-2">
+            <FileText className="h-6 w-6 text-primary" />
+            <div>
+              <CardTitle>Invoices</CardTitle>
+              <CardDescription>
+                Generate and manage invoices for your projects
+              </CardDescription>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center py-12 text-muted-foreground">
+            <FileText className="mx-auto h-16 w-16 mb-4 opacity-50" />
+            <p className="text-lg font-medium mb-2">Invoice Management</p>
+            <p>This feature will be available after connecting to Supabase backend</p>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default InvoicesPage;
