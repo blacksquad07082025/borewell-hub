@@ -6,14 +6,14 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
-          persist-credentials: false
+          persist-credentials: false # important for gh-pages
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -28,7 +28,8 @@ jobs:
 
       - name: Add SPA fallback
         run: |
-          cp ./dist/index.html ./dist/404.html
+          cp -r dist dist-temp
+          cp dist/index.html dist/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
